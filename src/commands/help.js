@@ -10,12 +10,11 @@ class PingCommand extends Command {
 
     exec(message) {
         return message.channel.send(`\`\`\`css
-[gibcookie, cookie] Give a cookie <3        
-[ping]              Send a ping back to see if the bot is alive        
-[help]              Show this Help Dialog        
-
+[cookie]  Give a cookie <3
+[ping]    Send a ping back to see if the bot is alive
+[help]    Show this Help Dialog
 \`\`\``);
     }
 }
 
-module.exports = PingCommand;
+module.exports = PingCommand;  
