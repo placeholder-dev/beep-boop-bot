@@ -3,8 +3,6 @@ const Discord = require('discord.js')
 const env = process.env
 const bot = new Discord.Client()
 
-var suicideMessage = new RegExp("(suicide|kills?|murders?)[^.]*(yourself|him|them|her|himself|herself|themselves|you)", "g");
-
 const prefix = "!"
 
 bot.on('message', (msg)=>{
@@ -16,6 +14,9 @@ bot.on('message', (msg)=>{
         default:
             break;
     }
+    
+    //!FIXME: This doesnt work
+    var suicideMessage = new RegExp("(suicide|kills?|murders?)[^.]*(yourself|him|them|her|himself|herself|themselves|you)", "g");
     console.log(`${msg.content}:  ${suicideMessage.test(msg.content)}`)
 })
 
