@@ -1,25 +1,23 @@
-const Discord = require('discord.js')
+const { AkairoClient, CommandHandler } = require('discord-akairo');
 
-const env = process.env
-const bot = new Discord.Client()
+class MyClient extends AkairoClient {
+    constructor() {
+        super({
+            ownerID: ['627349500456861717', '606919408643866626', '276212973226295296'], 
+        }, {
+            disableMentions: 'everyone'
+        });
 
-const prefix = "!"
-
-bot.on('message', (msg)=>{
-    switch (msg.content) {
-        case prefix+"gibcookie":
-            msg.channel.send(":cookie:")
-            break;
-    
-        default:
-            break;
+        this.commandHandler = new CommandHandler(this, {
+            directory: './commands/',
+            prefix: '?' // or ['?', '!']
+        });
+        //Load the Commands
+        this.commandHandler.loadAll();
     }
-    
-    //!FIXME: This doesnt work
-    var suicideMessage = new RegExp("(suicide|kills?|murders?)[^.]*(yourself|him|them|her|himself|herself|themselves|you)", "g");
-    console.log(`${msg.content}:  ${suicideMessage.test(msg.content)}`)
-})
+}
 
-bot.login(env.TOKEN, ()=>{
-    console.log(`Logged in as ${bot.user.tag}`)
-})
+const client = new MyClient();
+const env = process.env
+
+client.login(env.TOKEN);
