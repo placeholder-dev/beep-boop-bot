@@ -11,7 +11,7 @@ class ReadyListener extends Listener {
     exec(message) {
         var content = message.content.toLowerCase()
         try {
-            if(/suicide|s.u.i.c.i.d.e| kill myselsf/.test(content)){
+            if(/suicide|s.u.i.c.i.d.e|kill myselsf/.test(content)){
                 message.delete()
                 message.author.send(`Please dont commit Suicide! 
                 If you are feeling like Self Harm is in any way a good idea then please contact the Suicide Prevention Hotline at (800-273-8255)`)

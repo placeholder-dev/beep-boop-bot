@@ -5,10 +5,12 @@ const {
     ListenerHandler 
 } = require('discord-akairo');
 
+const config = require('./config.json')
+
 class MyClient extends AkairoClient {
     constructor() {
         super({
-            ownerID: ['627349500456861717', '606919408643866626', '276212973226295296'], 
+            ownerID: config.settings.owners, 
         }, {
             disableMentions: 'everyone'
         });
