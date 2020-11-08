@@ -17,7 +17,7 @@ class MyClient extends AkairoClient {
 
         this.commandHandler = new CommandHandler(this, {
             directory: './commands/',
-            prefix: '?' // or ['?', '!']
+            prefix: config.settings.prefix // or ['?', '!']
         });
         //Load the Commands
         this.commandHandler.loadAll();
